@@ -1,0 +1,19 @@
+{
+  "name": "crud_demo",
+  "version": "1.0.0",
+  "description": "Exemple de manipulation de fichier JSON",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Nicolas Chourot - august 2020",
+  "license": "ISC",
+  "dependencies": {
+    "-": "0.0.1",
+    "g": "^2.0.1",
+    "properties-reader": "^2.1.1",
+    "query-string": "^6.13.2",
+    "uuid": "^8.3.1"
+  }
+}
