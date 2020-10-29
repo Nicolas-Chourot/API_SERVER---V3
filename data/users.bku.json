@@ -1,0 +1,51 @@
+[
+    {
+        "Id": 1,
+        "Name": "Nicolas Chourot",
+        "Email": "Nicolas.Chourot@clg.qc.ca",
+        "Password": "123",
+        "Created": 1601500396
+    },
+    {
+        "Id": 2,
+        "Name": "Stéphane Chassé",
+        "Email": "Stephane.Chasse@clg.qc.ca",
+        "Password": "Password_123",
+        "Created": 1601500614
+    },
+    {
+        "Id": 3,
+        "Name": "Patrice Roy",
+        "Email": "Patrice.Roy@clg.qc.ca",
+        "Password": "Password_123",
+        "Created": 1601500919
+    },
+    {
+        "Id": 4,
+        "Name": "Saliha Yacoub",
+        "Email": "Saliha.Yacoub@clg.qc.ca",
+        "Password": "Password_123",
+        "Created": 1601501044
+    },
+    {
+        "Id": 5,
+        "Name": "Kyle Ross",
+        "Email": "Kyle.Ross@clg.qc.ca",
+        "Password": "Password_123",
+        "Created": 1601564566
+    },
+    {
+        "Id": 6,
+        "Name": "Rachid Kadouche",
+        "Email": "Rachid.Kadouche@clg.qc.ca",
+        "Password": "Password_123",
+        "Created": 1603112394
+    },
+    {
+        "Id": 7,
+        "Name": "Warda Moussadak",
+        "Email": "Warda.Moussadak@clg.qc.ca",
+        "Password": "123",
+        "Created": 1603740612
+    }
+]

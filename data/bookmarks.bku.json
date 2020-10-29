@@ -1,0 +1,229 @@
+[
+    {
+        "ETag": "586744a0-1946-11eb-9b89-abd479e92339"
+    },
+    {
+        "Id": 3,
+        "Name": "radio-canada",
+        "Url": "https://ici.radio-canada.ca/",
+        "Category": "news",
+        "UserId": 1
+    },
+    {
+        "Id": 4,
+        "Name": "Stage-Emploi",
+        "Url": "https://stages.clg.qc.ca/",
+        "Category": "stages",
+        "UserId": 1
+    },
+    {
+        "Id": 6,
+        "Name": "GiHub",
+        "Url": "https://github.com/",
+        "Category": "repository",
+        "UserId": 1
+    },
+    {
+        "Id": 7,
+        "Name": "CNN",
+        "Url": "https://www.cnn.com/",
+        "Category": "news",
+        "UserId": 2
+    },
+    {
+        "Id": 8,
+        "Name": "Youtube",
+        "Url": "https://www.youtube.com/",
+        "Category": "video",
+        "UserId": 1
+    },
+    {
+        "Id": 9,
+        "Name": "Facebook",
+        "Url": "https://facebook.com/",
+        "Category": "social",
+        "UserId": 2
+    },
+    {
+        "Id": 10,
+        "Name": "Windy",
+        "Url": "https://www.windy.com/",
+        "Category": "weather",
+        "UserId": 3
+    },
+    {
+        "Id": 11,
+        "Name": "NHC",
+        "Url": "https://www.nhc.noaa.gov/",
+        "Category": "weather",
+        "UserId": 3
+    },
+    {
+        "Id": 13,
+        "Name": "stackoverflow",
+        "Url": "https://stackoverflow.com/",
+        "Category": "development",
+        "UserId": 4
+    },
+    {
+        "Id": 14,
+        "Name": "CodeProject",
+        "Url": "https://www.codeproject.com/",
+        "Category": "development",
+        "UserId": 5
+    },
+    {
+        "Id": 15,
+        "Name": "Gltich",
+        "Url": "https://glitch.com/",
+        "Category": "hosting",
+        "UserId": 5
+    },
+    {
+        "Id": 16,
+        "Name": "000webhost",
+        "Url": "https://www.000webhost.com/",
+        "Category": "hosting",
+        "UserId": 4
+    },
+    {
+        "Id": 17,
+        "Name": "coderjony",
+        "Url": "https://coderjony.com/",
+        "Category": "blog",
+        "UserId": 4
+    },
+    {
+        "Id": 18,
+        "Name": "Colnet",
+        "Url": "https://portail2.clg.qc.ca/ColNet/",
+        "Category": "college",
+        "UserId": 3
+    },
+    {
+        "Id": 19,
+        "Name": "Collège Lionel-Groulx",
+        "Url": "http://www.clg.qc.ca/",
+        "Category": "college",
+        "UserId": 3
+    },
+    {
+        "Id": 20,
+        "Name": "Netflix",
+        "Url": "https://www.netflix.com/",
+        "Category": "streaming",
+        "UserId": 2
+    },
+    {
+        "Id": 21,
+        "Name": "jQuery",
+        "Url": "https://jquery.com/",
+        "Category": "librairy",
+        "UserId": 2
+    },
+    {
+        "Id": 22,
+        "Name": "NBC",
+        "Url": "https://www.nbc.com/",
+        "Category": "news",
+        "UserId": 4
+    },
+    {
+        "Id": 23,
+        "Name": "Live Beach Webcam",
+        "Url": "https://www.livebeaches.com/webcams/watermans-webcam-on-virginia-beach-boardwalk/",
+        "Category": "webcam",
+        "UserId": 3
+    },
+    {
+        "Id": 24,
+        "Name": "Baynews",
+        "Url": "https://www.baynews9.com/",
+        "Category": "weather",
+        "UserId": 1
+    },
+    {
+        "Id": 25,
+        "Name": "BBC",
+        "Url": "https://www.bbc.com/news/",
+        "Category": "news",
+        "UserId": 1
+    },
+    {
+        "Id": 26,
+        "Name": "France24",
+        "Url": "https://www.france24.com/",
+        "Category": "news",
+        "UserId": 5
+    },
+    {
+        "Id": 27,
+        "Name": "git",
+        "Url": "https://git-scm.com/",
+        "Category": "repository",
+        "UserId": 1
+    },
+    {
+        "Id": 28,
+        "Name": "Git tutorielle",
+        "Url": "https://www.youtube.com/watch?v=gp_k0UVOYMw&ab_channel=Graven-D%C3%A9veloppement",
+        "Category": "tutorial",
+        "UserId": 5
+    },
+    {
+        "Id": 29,
+        "Name": "Google",
+        "Url": "https://google.com",
+        "Category": "search",
+        "UserId": 5
+    },
+    {
+        "Id": 31,
+        "Name": "w3schools",
+        "Url": "https://www.w3schools.com/",
+        "Category": "tutorial",
+        "UserId": 2
+    },
+    {
+        "Id": 32,
+        "Name": "Météo Média",
+        "Url": "https://www.meteomedia.com/ca/meteo/quebec/blainville",
+        "Category": "weather",
+        "UserId": 1
+    },
+    {
+        "Id": 33,
+        "Name": "WunderMap",
+        "Url": "https://www.wunderground.com/wundermap",
+        "Category": "weather",
+        "UserId": 1
+    },
+    {
+        "Id": 34,
+        "Name": "WeTransfer",
+        "Url": "https://wetransfer.com/",
+        "Category": "utilities",
+        "UserId": 1
+    },
+    {
+        "Id": 35,
+        "Name": "YouSendIt",
+        "Url": "https://yousendit.fr.softonic.com/applications-web",
+        "Category": "utilities",
+        "UserId": 1
+    },
+    {
+        "Id": 36,
+        "Name": "Autre Google",
+        "Url": "https://www.google.ca",
+        "Category": "search",
+        "UserId": 5
+    },
+    {
+        "Id": 41,
+        "Name": "Allobbbbb",
+        "Url": "https://stages.clg.qc.ca",
+        "Category": "news",
+        "UserId": 7
+    }
+]

@@ -2,6 +2,7 @@ const Repository = require('../models/Repository');
 const TokenManager = require('../tokenManager');
 const utilities = require("../utilities");
 const User = require('../models/user');
+const Cache = require('../cache');
 
 module.exports = 
 class AccountsController extends require('./Controller') {
@@ -91,9 +92,28 @@ class AccountsController extends require('./Controller') {
         } else
             this.response.unAuthorized();
     }
+    deleteAllUsersBookmarks(userId){
+        let bookmarksRepository = new Repository('Bookmarks', true);
+        let bookmarks = bookmarksRepository.getAll();
+        let indexToDelete = [];
+        let index = 0;
+        for(let bookmark of bookmarks) {
+            if (bookmark.UserId == userId)
+                indexToDelete.push(index);
+            index ++;
+        }
+        bookmarksRepository.removeByIndex(indexToDelete);
+        Cache.clear('bookmarks');
+    }
     // todo
     remove(id) {
-        if (this.requestActionAuthorized())
-            this.response.notImplemented();
+        if (this.requestActionAuthorized()) {
+            this.deleteAllUsersBookmarks(id);
+            if (this.usersRepository.remove(id))
+                this.response.accepted();
+            else
+                this.response.notFound();
+            } else 
+        this.response.unAuthorized();
     }
 }

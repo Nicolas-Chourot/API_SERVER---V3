@@ -39,6 +39,7 @@ function routeConfig() {
     RouteRegister.add('GET','accounts');
     RouteRegister.add('POST','accounts','register');
     RouteRegister.add('PUT','accounts','change');
+    RouteRegister.add('DELETE','accounts','remove');
 }
 function registered_Enpoint(req, res) {
     return require('./router').dispatch_Registered_EndPoint(req, res);
