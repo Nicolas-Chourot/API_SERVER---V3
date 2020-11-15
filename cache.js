@@ -19,7 +19,7 @@ class Cache {
                     if (endpoint.url == url) {
                         // renew cache
                         endpoint.expireIn = utilities.nowInSeconds() + CacheExpirationTime;
-                        console.log("RETREIVED FROM CACHE");
+                        console.log("RETRIEVED FROM CACHE"); 
                         return endpoint.content;
                     }
                 }
