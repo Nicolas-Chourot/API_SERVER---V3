@@ -6,7 +6,7 @@ module.exports =
 class BookmarksController extends require('./Controller') {
     constructor(req, res){
         super(req, res, false /* needAuthorization */);
-        this.bookmarksRepository = new Repository('Bookmarks', true /* useETag */);
+        this.bookmarksRepository = new Repository('Bookmarks');
         this.collectionFilter = new CollectionFilter();
     }
     error(params, message){

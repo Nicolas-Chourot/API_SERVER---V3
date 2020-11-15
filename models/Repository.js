@@ -7,19 +7,30 @@ const fs = require('fs');
 // If the objectsFile does not exist it will be created on demand.
 // Warning: no type and data validation is provided
 ///////////////////////////////////////////////////////////////////////////
+
+let repositoryEtags = {};
+
 module.exports = 
 class Repository {
-    constructor(objectsName, useETag = false) {
-        objectsName = objectsName.toLowerCase();
+    constructor(objectsName) {
+        this.objectsName = objectsName.toLowerCase();
         this.objectsList = [];
         this.objectsFile = `./data/${objectsName}.json`;
-        this.useETag = useETag;
-        this.ETag = "";
+        this.initEtag();
         this.read();
     }
 
-    makeETag(){
-        return uuidv1();
+    initEtag() {
+        this.ETag = "";
+        if (this.objectsName in repositoryEtags)
+            this.ETag = repositoryEtags[this.objectsName];
+        else
+            this.newETag();
+    }
+
+    newETag(){
+        this.ETag = uuidv1();
+        repositoryEtags[this.objectsName] = this.ETag;
     }
 
     read() {
@@ -29,10 +40,6 @@ class Repository {
             let rawdata = fs.readFileSync(this.objectsFile);
             // we assume here that the json data is formatted correctly
             this.objectsList = JSON.parse(rawdata);
-            if (this.useETag) {
-                this.ETag =  this.objectsList[0].ETag;
-                this.objectsList.splice(0,1);
-            }
         } catch(error) {
             if (error.code === 'ENOENT') {
                 // file does not exist, it will be created on demand
@@ -43,11 +50,7 @@ class Repository {
     write() {
         // Here we use the synchronus version writeFile in order
         // to avoid concurrency problems  
-        if (this.useETag){
-            let etag = {ETag: this.makeETag()};
-            this.objectsList.splice(0, 0, etag);
-            this.ETag = etag.ETag;
-        }
+        this.newETag();
         fs.writeFileSync(this.objectsFile, JSON.stringify(this.objectsList));
         this.read();
     }
