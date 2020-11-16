@@ -31,7 +31,6 @@ class BookmarksController extends require('./Controller') {
         this.res.writeHead(200, {'content-type':'text/html'});
         this.res.end(this.queryStringParamsList());
     }
-  
     resolveUserName(bookmark){
         let users = new Repository('Users');
         let user = users.get(bookmark.UserId);
@@ -42,7 +41,6 @@ class BookmarksController extends require('./Controller') {
         bookmarkWithUsername["Username"] = username;
         return bookmarkWithUsername;
     }
-
     resolveUserNames(bookmarks){
         let users = new Repository('Users');
         let bookmarksWithUsername = bookmarks.map(bookmark => ({...bookmark}));
@@ -55,7 +53,6 @@ class BookmarksController extends require('./Controller') {
         };
         return bookmarksWithUsername;
     }
-
     head() {
         this.response.JSON(null, this.bookmarksRepository.ETag);
     }
@@ -63,8 +60,7 @@ class BookmarksController extends require('./Controller') {
     // GET: api/bookmarks?sort=key&key=value....
     // GET: api/bookmarks/{id}
     get(id){
-        let params = this.getQueryStringParams();
-        
+        let params = this.getQueryStringParams();      
         // if we have no parameter, expose the list of possible query strings
         if (params === null) {
             if(!isNaN(id)) {

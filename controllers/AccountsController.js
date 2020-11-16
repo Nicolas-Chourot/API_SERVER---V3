@@ -30,7 +30,6 @@ class AccountsController extends require('./Controller') {
             this.response.JSON(usersClone);
         }
     }
-
     // POST: /token body payload[{"Email": "...", "Password": "...", "grant-type":"password"}]
     login(loginInfo) {
         // to do assure that grant-type is present in the request header
@@ -47,7 +46,6 @@ class AccountsController extends require('./Controller') {
         } else
             this.response.badRequest();
     }
-    
     // POST: account/register body payload[{"Id": 0, "Name": "...", "Email": "...", "Password": "..."}]
     register(user) {  
         user.Created = utilities.nowInSeconds();
@@ -68,7 +66,7 @@ class AccountsController extends require('./Controller') {
         } else
             this.response.unprocessable();
     }
-
+    // PUT: account/register body payload[{"Id": 0, "Name": "...", "Email": "...", "Password": "..."}]
     change(user) {
         if (this.requestActionAuthorized()) {
             let foundUser = this.usersRepository.get(user.Id);
@@ -105,7 +103,6 @@ class AccountsController extends require('./Controller') {
         bookmarksRepository.removeByIndex(indexToDelete);
         Cache.clear('bookmarks');
     }
-    // todo
     remove(id) {
         if (this.requestActionAuthorized()) {
             this.deleteAllUsersBookmarks(id);
