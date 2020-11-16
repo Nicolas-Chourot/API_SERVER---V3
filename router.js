@@ -63,7 +63,7 @@ exports.dispatch_Registered_EndPoint = function(req, res){
         try{
             // dynamically import the targeted controller
             // if the controllerName does not exist the catch section will be called
-            const Controller = require('./controllers/' + route.modelName + "Controller");
+            const Controller = require('./controllers/' + utilities.capitalizeFirstLetter(route.modelName) + "Controller");
             // instanciate the controller       
             let controller =  new Controller(req, res);
 
@@ -97,7 +97,6 @@ exports.dispatch_Registered_EndPoint = function(req, res){
     // request not consumed
     // must be handled by another middleware
     return false;
-
 }
 
 //////////////////////////////////////////////////////////////////////
