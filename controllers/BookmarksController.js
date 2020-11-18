@@ -1,13 +1,13 @@
 const Repository = require('../models/Repository');
 const Bookmark = require('../models/bookmark');
 const CollectionFilter = require('../models/collectionFilter');
+const { decomposePath } = require('../utilities');
 
 module.exports = 
 class BookmarksController extends require('./Controller') {
     constructor(req, res){
         super(req, res, false /* needAuthorization */);
-        this.bookmarksRepository = new Repository('Bookmarks');
-        this.collectionFilter = new CollectionFilter();
+        this.bookmarksRepository = new Repository('Bookmarks', true /* cached */);
     }
     error(params, message){
         params["error"] = message;
@@ -23,6 +23,7 @@ class BookmarksController extends require('./Controller') {
         content += "<h4>? key=value* <br> return the bookmark with key value that start with value";
         content += "<h4>? key=*value* <br> return the bookmark with key value that contains value";        
         content += "<h4>? key=*value <br> return the bookmark with key value end with value";
+        content += "<h4>page?limit=int&offset=int <br> return limit bookmarks of page offset";
         content += "</div>";
         return content;
     }
@@ -31,6 +32,7 @@ class BookmarksController extends require('./Controller') {
         this.res.writeHead(200, {'content-type':'text/html'});
         this.res.end(this.queryStringParamsList());
     }
+  
     resolveUserName(bookmark){
         let users = new Repository('Users');
         let user = users.get(bookmark.UserId);
@@ -41,6 +43,7 @@ class BookmarksController extends require('./Controller') {
         bookmarkWithUsername["Username"] = username;
         return bookmarkWithUsername;
     }
+
     resolveUserNames(bookmarks){
         let users = new Repository('Users');
         let bookmarksWithUsername = bookmarks.map(bookmark => ({...bookmark}));
@@ -53,14 +56,16 @@ class BookmarksController extends require('./Controller') {
         };
         return bookmarksWithUsername;
     }
+
     head() {
+        console.log(this.bookmarksRepository.ETag);
         this.response.JSON(null, this.bookmarksRepository.ETag);
     }
     // GET: api/bookmarks
     // GET: api/bookmarks?sort=key&key=value....
     // GET: api/bookmarks/{id}
     get(id){
-        let params = this.getQueryStringParams();      
+        let params = this.getQueryStringParams(); 
         // if we have no parameter, expose the list of possible query strings
         if (params === null) {
             if(!isNaN(id)) {
@@ -73,16 +78,8 @@ class BookmarksController extends require('./Controller') {
             if (Object.keys(params).length === 0) {
                 this.queryStringHelp();
             } else {
-                this.collectionFilter.init(this.resolveUserNames(this.bookmarksRepository.getAll()));
-                if ('name' in params)
-                    this.collectionFilter.addSearchKey('name', params['name']);
-                if ('category' in params)
-                    this.collectionFilter.addSearchKey('category', params['category']);
-                if ('username' in params)
-                    this.collectionFilter.addSearchKey('username', params['username']);
-                if ('sort' in params)
-                    this.collectionFilter.setSortFields(params['sort']);
-                    this.response.JSON(this.collectionFilter.get(), this.bookmarksRepository.ETag);
+                let collectionFilter= new CollectionFilter(this.resolveUserNames(this.bookmarksRepository.getAll()), params);
+                this.response.JSON(collectionFilter.get(), this.bookmarksRepository.ETag);
             }
         }
     }
