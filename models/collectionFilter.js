@@ -7,16 +7,13 @@ class collectionFilter{
         this.sortFields = [];
         this.searchKeys = [];
         this.filteredCollection = [];
-        this.limit = 0;
-        this.offset = 0;
+
         let instance = this;
         Object.keys(filterParams).forEach(function(paramName) {
             let paramValue = filterParams[paramName];
             console.log(paramName, paramValue);
             switch (paramName) {
                 case "sort": instance.setSortFields(paramValue); break;
-                case "limit": instance.limit = paramValue;  break;
-                case "offset": instance.offset = paramValue; break;
                 default: instance.addSearchKey(paramName, paramValue);
             }
         });
@@ -105,23 +102,11 @@ class collectionFilter{
     sort() {
         this.filteredCollection.sort((a, b) => this.compare(a, b));
     }
-    getPage(collection){
-        if (this.limit != 0){
-            let page = [];
-            let objectsListLength = collection.length;
-            for(let i = this.offset * this.limit; i < (this.offset + 1) * this.limit; i++) {
-                if (i < objectsListLength) {
-                    page.push(collection[i]);
-                }
-            }
-            return page;
-        }
-        return collection;
-    }
+
     get() {
         this.findByKeys();
         if (this.sortFields.length > 0)
             this.sort();
-        return this.getPage(this.filteredCollection);
+        return this.filteredCollection;
     }
 }
