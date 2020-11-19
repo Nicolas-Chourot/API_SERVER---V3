@@ -83,6 +83,7 @@ class AccountsController extends require('./Controller') {
                         if (user.Password == "")
                             user.Password = foundUser.Password;
                             this.usersRepository.update(user);
+                            Cache.clear("/api/bookmarks");
                             this.response.ok();
                 } else
                     this.response.conflict();
