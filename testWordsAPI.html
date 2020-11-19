@@ -115,7 +115,7 @@
         }
 
         function webAPI_GET() {
-            let queryString = "?limit="+ limit + "&offset=" + offset;
+            let queryString = "?limit="+ limit + "&offset=" + offset + "&sort=word";
             if (currentLetter != "*")
                 queryString += "&word=" + currentLetter + "*";
             $('#words').empty();
