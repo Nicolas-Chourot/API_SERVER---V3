@@ -65,5 +65,5 @@ class TokenManager{
 }
 
 // periodic cleaning of expired tokens
-setInterval(TokenManager.cleanTokens, tokenLifeDuration);
+setInterval(TokenManager.cleanTokens, tokenLifeDuration * 1000);
 module.exports = TokenManager;

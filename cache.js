@@ -56,5 +56,5 @@ class Cache {
 }
 
 // periodic cleaning of expired cached GET request
-setInterval(Cache.flushExpired, CacheExpirationTime);
+setInterval(Cache.flushExpired, CacheExpirationTime * 1000);
 module.exports = Cache;
